@@ -1,0 +1,30 @@
+CREATE TABLE material_types (
+id SERIAL PRIMARY KEY,
+name VARCHAR(100),
+loss_percent NUMERIC(5,2)
+);
+CREATE TABLE product_types (
+id SERIAL PRIMARY KEY,
+name VARCHAR(100),
+coefficient NUMERIC(5,2)
+);
+CREATE TABLE workshops (
+id SERIAL PRIMARY KEY,
+name VARCHAR(200),
+type VARCHAR(100),
+workers_count INT
+);
+CREATE TABLE products (
+id SERIAL PRIMARY KEY,
+type_id INT REFERENCES product_types(id),
+name VARCHAR(250),
+article VARCHAR(50),
+price NUMERIC(10,2),
+material_id INT REFERENCES material_types(id)
+);
+CREATE TABLE product_workshops (
+id SERIAL PRIMARY KEY,
+product_id INT REFERENCES products(id),
+workshop_id INT REFERENCES workshops(id),
+time NUMERIC(5,2)
+);
