@@ -1,1 +1,8 @@
+com\practice\uchebnayapraktika\Entitys\ProductWorkshop.class
+com\practice\uchebnayapraktika\Repositories\ProductRepository.class
+com\practice\uchebnayapraktika\Entitys\Workshop.class
+com\practice\uchebnayapraktika\Entitys\ProductType.class
+com\practice\uchebnayapraktika\Controllers\ProductController.class
+com\practice\uchebnayapraktika\Entitys\Product.class
 com\practice\uchebnayapraktika\UchebnayaPraktikaApplication.class
+com\practice\uchebnayapraktika\Entitys\MaterialType.class

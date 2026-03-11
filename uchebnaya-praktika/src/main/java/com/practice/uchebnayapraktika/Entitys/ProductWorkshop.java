@@ -28,12 +28,10 @@ public class ProductWorkshop {
     private Workshop workshop;
 
     @Column(name = "time", precision = 5, scale = 2)
-    private BigDecimal time; // Время изготовления в этом цехе
-
-    // Конструкторы
+    private BigDecimal time;
+    
     public ProductWorkshop() {}
 
-    // Геттеры и сеттеры
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 

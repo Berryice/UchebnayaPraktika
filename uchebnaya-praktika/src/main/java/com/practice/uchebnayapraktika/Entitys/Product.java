@@ -1,6 +1,7 @@
 package com.practice.uchebnayapraktika.Entitys;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,26 +22,36 @@ public class Product {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "type_id", referencedColumnName = "id")
-    private ProductType type; // Связь с типом продукции
+    @JoinColumn(name = "type_id")
+    private ProductType type;
 
-    @Column(name = "name", length = 250, nullable = false)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "article", length = 50, unique = true) // Артикул должен быть уникальным
+    @Column(name = "article")
     private String article;
 
-    @Column(name = "price", precision = 10, scale = 2)
+    @Column(name = "price")
     private BigDecimal price;
 
     @ManyToOne
-    @JoinColumn(name = "material_id", referencedColumnName = "id")
-    private MaterialType material; // Связь с типом материала
+    @JoinColumn(name = "material_id")
+    private MaterialType material;
 
-    // Конструкторы
+    @OneToMany(mappedBy = "product")
+    private List<ProductWorkshop> productWorkshops;
+
+    public Integer getTotalTime() {
+        if (productWorkshops == null || productWorkshops.isEmpty()) {
+            return 0;
+        }
+        return productWorkshops.stream()
+                .mapToInt(pw -> pw.getTime().intValue())
+                .sum();
+    }
+
     public Product() {}
 
-    // Геттеры и сеттеры
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 
@@ -57,4 +69,9 @@ public class Product {
 
     public MaterialType getMaterial() { return material; }
     public void setMaterial(MaterialType material) { this.material = material; }
+
+    public List<ProductWorkshop> getProductWorkshops() { return productWorkshops; }
+    public void setProductWorkshops(List<ProductWorkshop> productWorkshops) { 
+        this.productWorkshops = productWorkshops; 
+    }
 }

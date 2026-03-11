@@ -23,10 +23,8 @@ public class MaterialType {
     @Column(name = "loss_percent", precision = 5, scale = 2)
     private BigDecimal lossPercent;
 
-    // Конструкторы
     public MaterialType() {}
 
-    // Геттеры и сеттеры
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 

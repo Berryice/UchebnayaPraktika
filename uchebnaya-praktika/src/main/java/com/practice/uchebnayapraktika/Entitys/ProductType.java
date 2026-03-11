@@ -23,10 +23,8 @@ public class ProductType {
     @Column(name = "coefficient", precision = 5, scale = 2)
     private BigDecimal coefficient;
 
-    // Конструкторы
     public ProductType() {}
 
-    // Геттеры и сеттеры
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 

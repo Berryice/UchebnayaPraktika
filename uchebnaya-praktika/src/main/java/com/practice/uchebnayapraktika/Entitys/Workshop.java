@@ -24,10 +24,8 @@ public class Workshop {
     @Column(name = "workers_count")
     private Integer workersCount;
 
-    // Конструкторы
     public Workshop() {}
 
-    // Геттеры и сеттеры
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 
