@@ -49,7 +49,11 @@
             background-color:#355CBD; color:white; text-decoration:none; border-radius:5px;">
         изменить продукт
     </a>
-
+    <a th:href="@{'/workshops/' + ${product.id}}" 
+    style="display:inline-block; margin-left:10px; margin-top:10px; padding:5px 10px; 
+            background-color:#355CBD; color:white; text-decoration:none; border-radius:5px;">
+        цеха
+    </a>
     <p style="font-family:Candara; position:absolute; right:0; top:0; margin-right:5%">
         часов: <span th:text="${product.totalTime}"></span>
     </p>

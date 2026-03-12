@@ -1,4 +1,6 @@
 F:\UchebnayaPraktika\uchebnaya-praktika\src\main\java\com\practice\uchebnayapraktika\Controllers\ProductController.java
+F:\UchebnayaPraktika\uchebnaya-praktika\src\main\java\com\practice\uchebnayapraktika\Controllers\TestCalculatorController.java
+F:\UchebnayaPraktika\uchebnaya-praktika\src\main\java\com\practice\uchebnayapraktika\Controllers\WorkshopController.java
 F:\UchebnayaPraktika\uchebnaya-praktika\src\main\java\com\practice\uchebnayapraktika\Entitys\MaterialType.java
 F:\UchebnayaPraktika\uchebnaya-praktika\src\main\java\com\practice\uchebnayapraktika\Entitys\Product.java
 F:\UchebnayaPraktika\uchebnaya-praktika\src\main\java\com\practice\uchebnayapraktika\Entitys\ProductType.java
@@ -7,4 +9,5 @@ F:\UchebnayaPraktika\uchebnaya-praktika\src\main\java\com\practice\uchebnayaprak
 F:\UchebnayaPraktika\uchebnaya-praktika\src\main\java\com\practice\uchebnayapraktika\Repositories\MaterialTypeRepository.java
 F:\UchebnayaPraktika\uchebnaya-praktika\src\main\java\com\practice\uchebnayapraktika\Repositories\ProductRepository.java
 F:\UchebnayaPraktika\uchebnaya-praktika\src\main\java\com\practice\uchebnayapraktika\Repositories\ProductTypeRepository.java
+F:\UchebnayaPraktika\uchebnaya-praktika\src\main\java\com\practice\uchebnayapraktika\Services\MaterialCalculator.java
 F:\UchebnayaPraktika\uchebnaya-praktika\src\main\java\com\practice\uchebnayapraktika\UchebnayaPraktikaApplication.java

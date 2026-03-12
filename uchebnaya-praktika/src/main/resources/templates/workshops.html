@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Цеха для производства</title>
+    <link rel="icon" href="/Комфорт.ico" type="image/x-icon">
+    <style>
+        body { font-family: Candara; background-color: white; }
+        .container { margin: 5% auto; width: 80%; }
+        h1 { color: #355CBD; }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            background-color: #D2DFFF;
+            margin: 20px 0;
+        }
+        th, td { 
+            border: 2px solid black; 
+            padding: 10px; 
+            text-align: left;
+        }
+        th { background-color: #355CBD; color: white; }
+        .back-button {
+            background-color: #355CBD;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-family: Candara;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .product-info {
+            background-color: #D2DFFF;
+            padding: 15px;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Цеха для производства</h1>
+        
+        <div class="product-info" th:if="${product != null}">
+            <p><strong>Продукт:</strong> <span th:text="${product.name}"></span></p>
+            <p><strong>Артикул:</strong> <span th:text="${product.article}"></span></p>
+            <p><strong>Общее время:</strong> <span th:text="${product.totalTime}"></span> ч.</p>
+        </div>
+        
+        <table th:if="${not #lists.isEmpty(workshops)}">
+            <thead>
+                <tr>
+                    <th>Название цеха</th>
+                    <th>Количество человек</th>
+                    <th>Время (часов)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="pw : ${workshops}">
+                    <td th:text="${pw.workshop.name}"></td>
+                    <td th:text="${pw.workshop.workersCount}"></td>
+                    <td th:text="${pw.time}"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p th:if="${#lists.isEmpty(workshops)}">Для данного продукта цеха не назначены</p>
+        
+        <a href="/" class="back-button">Назад к списку</a>
+    </div>
+</body>
+</html>

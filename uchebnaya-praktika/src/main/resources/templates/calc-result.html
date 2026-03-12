@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Результат расчета</title>
+    <link rel="icon" href="/Комфорт.ico" type="image/x-icon">
+    <style>
+        body { font-family: Candara; background-color: white; }
+        .container { 
+            background-color: #D2DFFF; 
+            margin: 5% auto; 
+            padding: 20px; 
+            width: 50%; 
+            border: 2px solid black; 
+            border-radius: 10px;
+            text-align: center;
+        }
+        .result {
+            font-size: 48px;
+            color: #355CBD;
+            margin: 20px;
+        }
+        .back-button {
+            background-color: #355CBD;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-family: Candara;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Результат расчета сырья</h1>
+        <p>Тип продукции: <span th:text="${productTypeId}"></span></p>
+        <p>Тип материала: <span th:text="${materialTypeId}"></span></p>
+        <p>Количество: <span th:text="${quantity}"></span></p>
+        <p>Параметр 1: <span th:text="${param1}"></span></p>
+        <p>Параметр 2: <span th:text="${param2}"></span></p>
+        <div class="result" th:text="${result}"></div>
+        <a href="/" class="back-button">На главную</a>
+    </div>
+</body>
+</html>
