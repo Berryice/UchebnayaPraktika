@@ -10,6 +10,13 @@
 
 <h1>список продуктов</h1>
 
+<div th:if="${successMessage}" style="background-color: #4CAF50; color: white; padding: 10px; margin: 10px 0; border-radius: 5px; text-align: center;">
+    <span th:text="${successMessage}">Продукт успешно сохранен</span>
+</div>
+<div th:if="${errorMessage}" style="background-color: #f44336; color: white; padding: 10px; margin: 10px 0; border-radius: 5px; text-align: center;">
+    <span th:text="${errorMessage}">Ошибка</span>
+</div>
+
 <button onclick="window.location.assign('/add_product')" style="color:#355CBD">
     добавить товар
 </button>
@@ -36,6 +43,12 @@
     <p style="font-family:Candara; margin-left:5%">
         материал: <span th:text="${product.material.name}"></span>
     </p>
+
+    <a th:href="@{'/update_product/' + ${product.id}}" 
+    style="display:inline-block; margin-left:5%; margin-top:10px; padding:5px 10px; 
+            background-color:#355CBD; color:white; text-decoration:none; border-radius:5px;">
+        изменить продукт
+    </a>
 
     <p style="font-family:Candara; position:absolute; right:0; top:0; margin-right:5%">
         часов: <span th:text="${product.totalTime}"></span>

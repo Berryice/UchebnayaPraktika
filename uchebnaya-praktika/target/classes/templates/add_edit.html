@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${product.id != null ? 'Редактирование товара' : 'Добавление товара'}">Добавление товара</title>
+    <link rel="icon" href="/Комфорт.ico" type="image/x-icon">
+    <style>
+        body { font-family: Candara; background-color: white; }
+        .form-container { 
+            background-color: #D2DFFF; 
+            margin: 5% auto; 
+            padding: 20px; 
+            width: 50%; 
+            border: 2px solid black; 
+            border-radius: 10px;
+        }
+        .form-group { margin-bottom: 15px; }
+        label { display: inline-block; width: 200px; font-weight: bold; }
+        input, select { 
+            width: 300px; 
+            padding: 5px; 
+            font-family: Candara;
+            border: 1px solid #355CBD;
+            border-radius: 5px;
+        }
+        .button-group { margin-top: 20px; text-align: center; }
+        button { 
+            background-color: #355CBD; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            margin: 0 10px;
+            font-family: Candara;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .error { color: red; font-size: 12px; margin-left: 205px; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 th:text="${product.id != null ? 'Редактирование товара' : 'Добавление товара'}"></h1>
+        
+        <div th:if="${errorMessage}" style="background-color: #f44336; color: white; padding: 10px; margin: 10px 0; border-radius: 5px; text-align: center;">
+            <span th:text="${errorMessage}">Ошибка</span>
+        </div>
+
+        <form action="#" th:action="@{/save_product}" method="post" th:object="${product}">
+            <input type="hidden" name="id" th:value="*{id}" />
+            
+            <div class="form-group">
+                <label>Артикул:</label>
+                <input type="text" name="article" th:value="*{article}" required />
+            </div>
+            
+            <div class="form-group">
+                <label>Тип продукта:</label>
+                <select name="type.id" required>
+                    <option value="">-- Выберите тип --</option>
+                    <option th:each="type : ${productTypes}" 
+                            th:value="${type.id}" 
+                            th:text="${type.name}"
+                            th:selected="${product != null and product.type != null and product.type.id == type.id}">
+                    </option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Наименование:</label>
+                <input type="text" name="name" th:value="*{name}" required />
+            </div>
+            
+            <div class="form-group">
+                <label>Мин. стоимость для партнера:</label>
+                <input type="number" name="price" th:value="*{price}" 
+                       step="0.01" min="0" required />
+            </div>
+            
+            <div class="form-group">
+                <label>Основной материал:</label>
+                <select name="material.id" required>
+                    <option value="">-- Выберите материал --</option>
+                    <option th:each="material : ${materials}" 
+                            th:value="${material.id}" 
+                            th:text="${material.name}"
+                            th:selected="${product != null and product.material != null and product.material.id == material.id}">
+                    </option>
+                </select>
+            </div>
+            
+            <div class="button-group">
+                <button type="submit">Сохранить</button>
+                <button type="button" onclick="window.location.href='/'">Назад</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
